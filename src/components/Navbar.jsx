@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-export default function Navbar({ activePage, setActivePage, cartCount, wishlistCount, user, setUser }) {
+export default function Navbar({
+  activePage,
+  setActivePage,
+  cartCount,
+  wishlistCount,
+  user,
+  setUser,
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navLinks = [
-    { label: 'Home', id: 'home' },
-    { label: 'Shop', id: 'shop' },
-    { label: 'Dashboard', id: 'admin' },
+    { label: "Home", id: "home" },
+    { label: "Shop", id: "shop" },
+    { label: "Dashboard", id: "admin" },
   ];
 
   const handleNavClick = (id) => {
@@ -19,10 +26,10 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      setActivePage('shop');
+      setActivePage("shop");
       setSearchOpen(false);
       // Custom event to trigger search in shop component
-      const event = new CustomEvent('shopSearch', { detail: searchQuery });
+      const event = new CustomEvent("shopSearch", { detail: searchQuery });
       window.dispatchEvent(event);
     }
   };
@@ -31,33 +38,34 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       {/* Editorial Announcement Bar */}
       <div className="bg-brand-charcoal text-white text-[10px] uppercase tracking-[0.25em] py-2.5 px-4 text-center font-medium font-sans">
-        Complimentary Worldwide Shipping on Orders Over $150 • Code: <span className="text-brand-gold font-bold">LUNAVOGUE10</span>
+        Complimentary Worldwide Shipping on Orders Over $150 • Code:{" "}
+        <span className="text-brand-gold font-bold">LUNAVOGUE10</span>
       </div>
 
       {/* Main Navbar */}
       <nav className="glass-header w-full px-4 lg:px-8 py-4 transition-all duration-300">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          
           {/* Mobile Menu Toggle button */}
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden text-brand-charcoal hover:text-brand-gold p-1 transition-colors duration-300 cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
-            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
+            <i
+              className={`fa-solid ${mobileMenuOpen ? "fa-xmark" : "fa-bars"} text-xl`}
+            ></i>
           </button>
 
-          {/* Luxury Brand Logo */}
-          <div 
-            onClick={() => handleNavClick('home')} 
-            className="flex flex-col items-center justify-center cursor-pointer select-none group"
+          {/* Luxury Brand Logo - Shopping Bag Monogram */}
+          <div
+            onClick={() => handleNavClick("home")}
+            className="flex items-center space-x-3 cursor-pointer select-none group"
           >
-            <span className="font-serif text-xl lg:text-2xl font-bold tracking-[0.2em] text-brand-charcoal transition-colors duration-300 group-hover:text-brand-gold">
-              LUNA VOGUE
-            </span>
-            <span className="text-[8px] tracking-[0.4em] text-brand-charcoal/60 uppercase font-sans -mt-0.5">
-              Boutique
-            </span>
+            <img
+              src="/logo.png"
+              alt="Luna Vogue Logo"
+              className="w-10 sm:w-15 h-auto transition-transform duration-300 ease-out group-hover:scale-105"
+            />
           </div>
 
           {/* Desktop Navigation Links */}
@@ -68,8 +76,8 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
                 onClick={() => handleNavClick(link.id)}
                 className={`text-xs uppercase tracking-[0.2em] font-sans font-medium transition-all duration-300 border-b pb-0.5 cursor-pointer ${
                   activePage === link.id
-                    ? 'text-brand-gold border-brand-gold'
-                    : 'text-brand-charcoal/80 border-transparent hover:text-brand-gold'
+                    ? "text-brand-gold border-brand-gold"
+                    : "text-brand-charcoal/80 border-transparent hover:text-brand-gold"
                 }`}
               >
                 {link.label}
@@ -79,11 +87,13 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
 
           {/* Action Icons */}
           <div className="flex items-center space-x-4 lg:space-x-6">
-            
             {/* Search Trigger */}
             <div className="relative flex items-center">
               {searchOpen && (
-                <form onSubmit={handleSearchSubmit} className="absolute right-8 animate-fade-in-left">
+                <form
+                  onSubmit={handleSearchSubmit}
+                  className="absolute right-8 animate-fade-in-left"
+                >
                   <input
                     type="text"
                     value={searchQuery}
@@ -93,18 +103,20 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
                   />
                 </form>
               )}
-              <button 
-                onClick={() => setSearchOpen(!searchOpen)} 
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
                 className="text-brand-charcoal hover:text-brand-gold transition-colors duration-300 p-1 cursor-pointer"
                 aria-label="Search Catalog"
               >
-                <i className={`fa-solid ${searchOpen ? 'fa-xmark' : 'fa-magnifying-glass'} text-base lg:text-lg`}></i>
+                <i
+                  className={`fa-solid ${searchOpen ? "fa-xmark" : "fa-magnifying-glass"} text-base lg:text-lg`}
+                ></i>
               </button>
             </div>
 
             {/* Account Profile / Login */}
-            <button 
-              onClick={() => handleNavClick('auth')}
+            <button
+              onClick={() => handleNavClick("auth")}
               className="text-brand-charcoal hover:text-brand-gold transition-colors duration-300 p-1 relative group cursor-pointer"
               aria-label="Account Login"
             >
@@ -115,8 +127,8 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
             </button>
 
             {/* Wishlist */}
-            <button 
-              onClick={() => handleNavClick('shop')}
+            <button
+              onClick={() => handleNavClick("shop")}
               className="text-brand-charcoal hover:text-brand-gold transition-colors duration-300 p-1 relative cursor-pointer"
               aria-label="View Wishlist"
             >
@@ -129,8 +141,8 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
             </button>
 
             {/* Cart Icon */}
-            <button 
-              onClick={() => handleNavClick('cart')}
+            <button
+              onClick={() => handleNavClick("cart")}
               className="text-brand-charcoal hover:text-brand-gold transition-colors duration-300 p-1 relative cursor-pointer"
               aria-label="Shopping Cart"
             >
@@ -141,7 +153,6 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
                 </span>
               )}
             </button>
-
           </div>
         </div>
       </nav>
@@ -150,7 +161,7 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-40 flex">
           {/* Backdrop overlay */}
-          <div 
+          <div
             onClick={() => setMobileMenuOpen(false)}
             className="fixed inset-0 bg-brand-charcoal/40 backdrop-blur-sm transition-opacity duration-300"
           ></div>
@@ -159,10 +170,53 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
           <div className="relative flex flex-col w-4/5 max-w-sm bg-[#F8F5F2] h-full shadow-2xl z-50 p-6 animate-fade-in-right justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-brand-charcoal/10 pb-4 mb-8">
-                <span className="font-serif text-lg font-bold tracking-[0.2em] text-brand-charcoal">
-                  LUNA VOGUE
-                </span>
-                <button 
+                <div className="flex items-center space-x-2.5">
+                  <svg
+                    className="w-7 h-7 shrink-0"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="46"
+                      stroke="#D4A373"
+                      strokeWidth="2.5"
+                    />
+                    <path
+                      d="M50 25 C36 25 25 36 25 50 C25 64 36 75 50 75 C53.5 75 56.8 74.3 59.8 73 C51.5 72 45 64.2 45 55 C45 45.8 51.5 38 59.8 37 C56.8 35.7 53.5 35 50 35 Z"
+                      fill="#D4A373"
+                      fillOpacity="0.15"
+                    />
+                    <path
+                      d="M50 39 C52.5 39 54.5 37 54.5 34.5 C54.5 32 52.5 30 50 30 C47.5 30 45.5 32 45.5 34.5 C45.5 35.8 46.5 36.8 47.8 37 L47.8 41.5"
+                      stroke="#1F2937"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M50 43.5 C41.5 43.5 32 47.5 32 51 C32 51.8 32.8 52.5 33.6 52.5 C34.2 52.5 34.7 52.2 35.1 51.9 C38.8 49.9 44.3 49 50 49 C55.7 49 61.2 49.9 64.9 51.9 C65.3 52.2 65.8 52.5 66.4 52.5 C67.2 52.5 68 51.8 68 51 C68 47.5 58.5 43.5 50 43.5 Z"
+                      fill="#1F2937"
+                    />
+                    <text
+                      x="50"
+                      y="70"
+                      fontFamily="'Inter', system-ui, sans-serif"
+                      fontSize="15"
+                      fontWeight="900"
+                      fill="#1F2937"
+                      textAnchor="middle"
+                      letterSpacing="4"
+                    >
+                      LV
+                    </text>
+                  </svg>
+                  <span className="font-serif text-base font-bold tracking-[0.2em] text-brand-charcoal">
+                    LUNA VOGUE
+                  </span>
+                </div>
+                <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-brand-charcoal hover:text-brand-gold p-1 cursor-pointer"
                 >
@@ -177,8 +231,8 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
                     onClick={() => handleNavClick(link.id)}
                     className={`text-left text-sm uppercase tracking-[0.2em] font-sans font-medium border-b border-transparent pb-1 cursor-pointer ${
                       activePage === link.id
-                        ? 'text-brand-gold'
-                        : 'text-brand-charcoal hover:text-brand-gold'
+                        ? "text-brand-gold"
+                        : "text-brand-charcoal hover:text-brand-gold"
                     }`}
                   >
                     {link.label}
@@ -197,12 +251,19 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
                       </span>
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[10px] uppercase text-brand-charcoal/50 tracking-wider">Welcome</span>
-                      <span className="text-xs font-bold text-brand-charcoal font-sans">{user.name}</span>
+                      <span className="text-[10px] uppercase text-brand-charcoal/50 tracking-wider">
+                        Welcome
+                      </span>
+                      <span className="text-xs font-bold text-brand-charcoal font-sans">
+                        {user.name}
+                      </span>
                     </div>
                   </div>
-                  <button 
-                    onClick={() => { setUser(null); setMobileMenuOpen(false); }}
+                  <button
+                    onClick={() => {
+                      setUser(null);
+                      setMobileMenuOpen(false);
+                    }}
                     className="text-[10px] uppercase font-bold text-red-500 tracking-wider hover:text-red-700 cursor-pointer"
                   >
                     Logout
@@ -210,7 +271,7 @@ export default function Navbar({ activePage, setActivePage, cartCount, wishlistC
                 </div>
               ) : (
                 <button
-                  onClick={() => handleNavClick('auth')}
+                  onClick={() => handleNavClick("auth")}
                   className="w-full text-center bg-brand-charcoal text-white text-xs uppercase tracking-[0.2em] py-3 font-medium hover:bg-brand-gold hover:text-white transition-colors duration-300 cursor-pointer"
                 >
                   Sign In / Register

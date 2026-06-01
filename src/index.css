@@ -7,7 +7,7 @@
   --color-brand-gold: #D4A373;
   --color-brand-gold-dark: #B88B5B;
 
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-serif: "Inter", system-ui, -apple-system, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 

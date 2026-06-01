@@ -85,7 +85,7 @@ export default function App() {
       category: 'Knitwear',
       rating: 4.8,
       images: [
-        'https://images.unsplash.com/photo-1574164904299-3a102b110380?w=800&auto=format&fit=crop&q=80',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCoGGEsPmClrQKvceQAoDyqGJG4C5lS9OMFw&s',
         'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80'
       ],
       sizes: ['S', 'M', 'L'],

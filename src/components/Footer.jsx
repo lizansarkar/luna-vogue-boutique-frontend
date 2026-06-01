@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function Footer({ setActivePage }) {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (email.trim()) {
       setSubscribed(true);
-      setEmail('');
+      setEmail("");
       setTimeout(() => setSubscribed(false), 5000);
     }
   };
@@ -16,30 +16,60 @@ export default function Footer({ setActivePage }) {
   return (
     <footer className="bg-brand-charcoal text-white/90 pt-16 pb-8 px-6 lg:px-12 font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/10 pb-16">
-        
         {/* Editorial Brand Story Column */}
         <div className="flex flex-col space-y-4">
-          <span className="font-serif text-lg lg:text-xl font-bold tracking-[0.2em] text-white">
-            LUNA VOGUE
-          </span>
+          {/* Luxury Brand Logo */}
+          <div className="flex items-center space-x-3 cursor-pointer select-none group">
+            <img
+              src="/logo.png"
+              alt="Luna Vogue Logo"
+              className="w-15 h-auto"
+            />
+          </div>
           <span className="text-[10px] tracking-[0.3em] text-brand-gold uppercase -mt-2">
             Pret-A-Porter
           </span>
           <p className="text-xs text-white/60 leading-relaxed pt-2">
-            Curated wardrobe concepts for the modern woman. Embracing sustainable elegance, high-caliber craftsmanship, and clean design aesthetics.
+            Curated wardrobe concepts for the modern woman. Embracing
+            sustainable elegance, high-caliber craftsmanship, and clean design
+            aesthetics.
           </p>
           {/* Social Links */}
           <div className="flex space-x-4 pt-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-brand-gold transition-colors duration-300" aria-label="Luna Vogue Instagram">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-brand-gold transition-colors duration-300"
+              aria-label="Luna Vogue Instagram"
+            >
               <i className="fa-brands fa-instagram text-base"></i>
             </a>
-            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-brand-gold transition-colors duration-300" aria-label="Luna Vogue Pinterest">
+            <a
+              href="https://pinterest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-brand-gold transition-colors duration-300"
+              aria-label="Luna Vogue Pinterest"
+            >
               <i className="fa-brands fa-pinterest text-base"></i>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-brand-gold transition-colors duration-300" aria-label="Luna Vogue Facebook">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-brand-gold transition-colors duration-300"
+              aria-label="Luna Vogue Facebook"
+            >
               <i className="fa-brands fa-facebook text-base"></i>
             </a>
-            <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-brand-gold transition-colors duration-300" aria-label="Luna Vogue WhatsApp Support">
+            <a
+              href="https://whatsapp.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-brand-gold transition-colors duration-300"
+              aria-label="Luna Vogue WhatsApp Support"
+            >
               <i className="fa-brands fa-whatsapp text-base"></i>
             </a>
           </div>
@@ -52,22 +82,34 @@ export default function Footer({ setActivePage }) {
           </h4>
           <ul className="space-y-2 text-xs text-white/60">
             <li>
-              <button onClick={() => setActivePage('shop')} className="hover:text-brand-gold transition-colors duration-300 text-left cursor-pointer">
+              <button
+                onClick={() => setActivePage("shop")}
+                className="hover:text-brand-gold transition-colors duration-300 text-left cursor-pointer"
+              >
                 Online Catalog
               </button>
             </li>
             <li>
-              <a href="#delivery-returns" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#delivery-returns"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Shipping & Returns
               </a>
             </li>
             <li>
-              <a href="#size-guide" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#size-guide"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Size Guidelines
               </a>
             </li>
             <li>
-              <a href="#faq" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#faq"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Boutique FAQ
               </a>
             </li>
@@ -81,22 +123,34 @@ export default function Footer({ setActivePage }) {
           </h4>
           <ul className="space-y-2 text-xs text-white/60">
             <li>
-              <a href="#about" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#about"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Our Heritage
               </a>
             </li>
             <li>
-              <a href="#sustainability" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#sustainability"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Sustainability Code
               </a>
             </li>
             <li>
-              <a href="#press" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#press"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Press & Editorial
               </a>
             </li>
             <li>
-              <a href="#careers" className="hover:text-brand-gold transition-colors duration-300">
+              <a
+                href="#careers"
+                className="hover:text-brand-gold transition-colors duration-300"
+              >
                 Careers at Vogue
               </a>
             </li>
@@ -109,9 +163,13 @@ export default function Footer({ setActivePage }) {
             The Vogue Guild
           </h4>
           <p className="text-xs text-white/60 leading-relaxed">
-            Join our mailing list to receive private invitations to new collections, editorial lookbooks, and VIP events.
+            Join our mailing list to receive private invitations to new
+            collections, editorial lookbooks, and VIP events.
           </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col space-y-2 pt-2">
+          <form
+            onSubmit={handleSubscribe}
+            className="flex flex-col space-y-2 pt-2"
+          >
             <div className="relative flex items-center">
               <input
                 type="email"
@@ -136,26 +194,53 @@ export default function Footer({ setActivePage }) {
             )}
           </form>
         </div>
-
       </div>
 
       {/* Footer Bottom Credentials */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between pt-8 text-[11px] text-white/40 space-y-4 md:space-y-0">
         <div>
-          <span>© {new Date().getFullYear()} Luna Vogue Boutique. All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} Luna Vogue Boutique. All rights
+            reserved.
+          </span>
           <span className="mx-2">•</span>
-          <a href="#privacy" className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</a>
+          <a
+            href="#privacy"
+            className="hover:text-brand-gold transition-colors duration-300"
+          >
+            Privacy Policy
+          </a>
           <span className="mx-2">•</span>
-          <a href="#terms" className="hover:text-brand-gold transition-colors duration-300">Terms of Use</a>
+          <a
+            href="#terms"
+            className="hover:text-brand-gold transition-colors duration-300"
+          >
+            Terms of Use
+          </a>
         </div>
-        
+
         {/* Payment Methods */}
         <div className="flex items-center space-x-4 text-lg">
-          <i className="fa-brands fa-cc-visa hover:text-white/60 transition-colors" title="Visa"></i>
-          <i className="fa-brands fa-cc-mastercard hover:text-white/60 transition-colors" title="Mastercard"></i>
-          <i className="fa-brands fa-cc-amex hover:text-white/60 transition-colors" title="American Express"></i>
-          <i className="fa-brands fa-cc-paypal hover:text-white/60 transition-colors" title="Paypal"></i>
-          <i className="fa-brands fa-cc-apple-pay hover:text-white/60 transition-colors" title="Apple Pay"></i>
+          <i
+            className="fa-brands fa-cc-visa hover:text-white/60 transition-colors"
+            title="Visa"
+          ></i>
+          <i
+            className="fa-brands fa-cc-mastercard hover:text-white/60 transition-colors"
+            title="Mastercard"
+          ></i>
+          <i
+            className="fa-brands fa-cc-amex hover:text-white/60 transition-colors"
+            title="American Express"
+          ></i>
+          <i
+            className="fa-brands fa-cc-paypal hover:text-white/60 transition-colors"
+            title="Paypal"
+          ></i>
+          <i
+            className="fa-brands fa-cc-apple-pay hover:text-white/60 transition-colors"
+            title="Apple Pay"
+          ></i>
         </div>
       </div>
     </footer>
